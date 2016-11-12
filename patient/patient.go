@@ -41,7 +41,7 @@ func (t *SimpleChaincode) Init(stub *shim.ChaincodeStub, function string, args [
 	}
 	name := args[0]
 	name2 := args[1]
-	str := `{"patient_name": "` + name + `", "name2": "` + name2 + `"}`
+	str := `{"name": "` + name + `", "name2": "` + name2 + `"}`
 	err := stub.PutState("patient_name", []byte(str))
 	if err != nil {
 		return nil, err
