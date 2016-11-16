@@ -36,13 +36,14 @@ func main() {
 
 // Init resets all the things
 func (t *SimpleChaincode) Init(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
-	if len(args) != 1 {
-		return nil, errors.New("Incorrect number of arguments. Expecting 1")
+	if len(args) != 2 {
+		return nil, errors.New("Incorrect number of arguments. Expecting  2")
 	}
-	//name := args[0]
-	//name2 := args[1]
-	//str := `{"name": "` + name + `", "name2": "` + name2 + `"}`
-	err := stub.PutState("patient_name", []byte(args[0]))
+	name := args[0]
+	name2 := args[1]
+	str := `{"name": "` + name + `", "name2": "` + name2 + `"}`
+	err := stub.PutState("patient_name", []byte(str))
+
 	if err != nil {
 		return nil, err
 	}
