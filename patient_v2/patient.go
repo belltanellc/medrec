@@ -32,22 +32,22 @@ func main() {
 	if err != nil {
 		fmt.Printf("Error starting Simple chaincode: %s", err)
 	}
-    fmt.Printf("Starting Simple chaincode: %s", "Starting")
+//    fmt.Printf("Starting Simple chaincode: %s", err)
 }
 
 // Init resets all the things
 func (t *PatientChaincode) Init(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
     fmt.Println("Checking array length")
-	if len(args) != 3 {
-		return nil, errors.New("Incorrect number of arguments.  Expecting 3")
+	if len(args) != 2 {
+		return nil, errors.New("Incorrect number of arguments.  Expecting 2")
 	}
-    fmt.Println("args1 " + args[0])
-    fmt.Println("args2 " + args[1])
+ //   fmt.Println("args1 " + args[0])
+ //   fmt.Println("args2 " + args[1])
 	name := args[0]
-	name2 := args[1]
-	str := `{"name": "` + name + `", "name2": "` + name2 + `"}`
-//    str := `{"name": "` + name + `"}`
-	fmt.Println("2 args " + str)
+//	name2 := args[1]
+//	str := `{"name": "` + name + `", "name2": "` + name2 + `"}`
+    str := `{"name": "` + name + `"}`
+//	fmt.Println("2 args " + str)
 	err := stub.PutState("patient_name", []byte(str))
 
 	if err != nil {
