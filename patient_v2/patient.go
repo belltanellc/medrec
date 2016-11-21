@@ -36,9 +36,12 @@ func main() {
 
 // Init resets all the things
 func (t *PatientChaincode) Init(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
+    fmt.Println("Checking array length")
 	if len(args) != 2 {
 		return nil, errors.New("Incorrect number of arguments.  Expecting 2")
 	}
+    fmt.Println("args1 " + args[0])
+    fmt.Println("args2 " + args[1])
 	name := args[0]
 	name2 := args[1]
 	str := `{"name": "` + name + `", "name2": "` + name2 + `"}`
