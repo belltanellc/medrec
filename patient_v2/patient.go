@@ -44,9 +44,9 @@ func (t *PatientChaincode) Init(stub shim.ChaincodeStubInterface, function strin
     fmt.Println("args1 " + args[0])
     fmt.Println("args2 " + args[1])
 	name := args[0]
-//	name2 := args[1]
-//	str := `{"name": "` + name + `", "name2": "` + name2 + `"}`
-    str := `{"name": "` + name + `"}`
+	name2 := args[1]
+	str := `{"name": "` + name + `", "name2": "` + name2 + `"}`
+//    str := `{"name": "` + name + `"}`
 //	fmt.Println("2 args " + str)
 	err := stub.PutState("patient_name", []byte(str))
 
