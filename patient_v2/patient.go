@@ -40,9 +40,9 @@ func (t *PatientChaincode) Init(stub shim.ChaincodeStubInterface, function strin
 		return nil, errors.New("Incorrect number of arguments.  Expecting 1")
 	}
 	name := args[0]
-//	name2 := args[1]
-//	str := `{"name": "` + name + `", "name2": "` + name2 + `"}`
-    str := `{"name": "` + name + `"}`
+	name2 := args[1]
+	str := `{"name": "` + name + `", "name2": "` + name2 + `"}`
+//    str := `{"name": "` + name + `"}`
 	fmt.Println("1 args " + str)
 	err := stub.PutState("patient_name", []byte(str))
 
